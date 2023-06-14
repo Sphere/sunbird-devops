@@ -32,7 +32,7 @@ data:
       access_log  /var/log/nginx/access.log  main;
       include /etc/nginx/conf.d/*.conf;
       sendfile        on;
-      client_max_body_size 60M;
+      client_max_body_size 400M;
       keepalive_timeout  65s;
       keepalive_requests 200;
 
@@ -255,4 +255,4 @@ data:
 kind: ConfigMap
 metadata:
   name: nginx-private-ingress.conf
-  namespace: {{ .Values.namespace }}
+  namespace: { { .Values.namespace } }
